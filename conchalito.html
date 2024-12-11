@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conchalito</title>
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+</head>
+<body>
+    <a-scene device-orientation-permission-ui="enabled: false">
+        <a-sky  id="sky" src="#point1" rotation="0 -80 0"></a-sky> 
+        <a-assets>
+            <img id="point1" src="resources/E1.webp" alt="Imagen 1">
+            <img id="point2" src="resources/E2.webp" alt="Imagen 2">
+            <img id="point3" src="resources/E3.webp" alt="Imagen 3">
+            <img id="point4" src="resources/E4.webp" alt="Imagen 4">
+            <img id="point5" src="resources/E5.webp" alt="Imagen 5">
+            <img id="point6" src="resources/E6.webp" alt="Imagen 6">
+            <img id="point7" src="resources/E7.webp" alt="Imagen 7">
+            <img id="point8" src="resources/E8.webp" alt="Imagen 8">
+
+            <img id="hsp1" src="resources/hsp1-test.jpg" alt="hsp1">
+            <img id="hsp1_2" src="resources/hsp1_2.jpg" alt="hsp2">
+
+            <img id="close1" src="resources/close1.png" alt="close1">
+
+            <!-- <img id="hsp11" src="images/HSP11.PNG" alt="Imagen flores">
+            
+            
+            <img id="hsp2" src="images/HSP2.PNG" alt="hsp2">
+            <img id="hsp3" src="images/HSP3.PNG" alt="hsp3">
+            <img id="hsp4" src="images/HSP4.PNG" alt="hsp1">
+            <img id="close" src="images/close.png" alt="close">
+            
+            <img id="point" src="images/point.png" alt="hsp1">
+            <img id="siguiente" src="images/sig.png" alt="sig">
+            
+             -->
+            <video id="atras" autoplay loop muted src="resources/direction.webm" alt="hotspot"></video>
+            <video id="adelante" autoplay loop muted src="resources/adelante.webm" alt="adelante"></video>
+            <video id="video" autoplay loop muted src="resources/try.webm"></video>
+        </a-assets>
+
+        <a-entity id="spots" hotspots scale="1 1 1">
+            <a-entity id="group-point1">
+                <a-video class="adelante" spot="linkto:#point2;spotgroup:group-point2" position="-0.70 1.4 8" rotation="65 6 98" material="opacity=0.8" src="#adelante" geometry="width: 2; height: 1.3"></a-video>
+               
+                <a-video id="open" position="-4 -3.8 10" rotation="20 -30 0.000" src="#video" material="opacity:0.8" visible="true" visibilidad="openImageId: open; imageId: hsp1_1; closeId: close2" geometry="width: 2.5; height: 2.5"></a-video>
+                <a-entity id="hsp1_1" position="-9 0.5 10" rotation="0.000 135 0.000" visible="false">
+                    <a-plane position="0 -0.25 0" rotation="0 0 0" geometry="width: 11.5; height: 15.5" material="color: black; opacity: 0.7"></a-plane>
+                    <a-image position="0 4 0.01" src="#hsp1" geometry="width: 11.5; height: 7" material=""></a-image> 
+                    <a-image position="5 6.8 0.03" id="close2" src="#close1" geometry="width: 0.8; height: 0.8" material=""></a-image>
+                    <a-text position="-3 0 0.01" value="Salicornia" align="right" color="white" width="11.9" text=""></a-text>
+                    <a-text position="-5.5 -4.1 0.01" value="Salicornia bigelovii, conocida como salicornia, es una especie de planta herbácea de la familia Chenopodiaceae que se encuentra en zonas intermareales, estuarios y marismas salinas. Se caracteriza por sus tallos suculentos, cilíndricos y ramificados, que adquieren un color rojizo o verde dependiendo de las condiciones ambientales. Esta especie es importante para la estabilización de suelos salinos y la protección de las costas, además de ser una fuente de alimento para diversas especies de fauna. Esta especie es también utilizada en la industria alimentaria por su alto contenido de nutrientes. No está incluida en la NOM-059-SEMARNAT-2010." align="left" color="white" width="11" text=""></a-text>
+                </a-entity>
+ 
+                <!-- <a-video src="#video" id="open" position="-10 -6 -2" rotation="30 -100 0.000" material="opacity:0.7" geometry="width: 3.2; height: 3.2"></a-video>  -->
+
+                <a-video id="open1" position="-10 -6 -2" rotation="30 -100 0.000" src="#video" material="opacity:0.8" visible="true" visibilidad="openImageId: open1; imageId: hsp1_2; closeId: close3" geometry="width: 3.2; height: 3.2"></a-video>
+                <a-entity id="hsp1_2" position="-9 0.5 10" rotation="0.000 140 0.000" visible="false">
+                    <a-plane position="0 -3 0" rotation="0 0 0" geometry="width: 10; height: 10.5" material="color: black; opacity: 0.7"></a-plane>
+                    <a-image position="0 2 0.01" src="#hsp1_2" geometry="width: 10; height: 6" material=""></a-image> 
+                    <a-image position="4.3 4.3 0.03" id="close3" src="#close1" geometry="width: 0.6; height: 0.6" material=""></a-image>
+                    <a-text position="-0.9 -1.6 0.01" value="Neumatoforos" align="right" color="white" width="11.9" text=""></a-text>
+                    <a-text position="-4.8 -3.7 0.01" value="Salicornia bigelovii, conocida como salicornia, es una especie de planta herbácea de la familia Chenopodiaceae que se encuentra en zonas intermareales, estuarios y marismas salinas. Se caracteriza por sus tallos suculentos, cilíndricos y ramificados, que adquieren un color rojizo o verde dependiendo de las condiciones ambientales. Esta especie es importante para la estabilización de suelos salinos y la protección de las costas, además de ser una fuente de alimento para diversas especies de fauna. Esta especie es también utilizada en la industria alimentaria por su alto contenido de nutrientes. No está incluida en la NOM-059-SEMARNAT-2010." align="left" color="white" width="10" text=""></a-text>
+                </a-entity>
+
+                <a-video class="adelante" spot="linkto:#point3;spotgroup:group-point3" position="1 0 -10" rotation="-75 6 80" material="opacity=0.8" src="#adelante" geometry="width:2.9; height: 1.7"></a-video>
+                <a-plane color="#222" opacity="0.6" width="0.4" height="0.12"></a-plane>
+
+                <a-entity position="-0.09 0.05 -1.3" rotation="-48.000 0.000 0.000">
+                    <a-plane color="#ffffff" opacity="0.45" width="1.2" height="0.17"></a-plane>
+                    <a-text id="scene-value" value="Escenario 1" color="black" align="center" width="3"></a-text>
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="group-point2" scale="0 0 0">
+                <a-video class="atras" spot="linkto:#point1;spotgroup:group-point1" rotation="82 37 110" position="2.5 0.7 8.5" src="#atras" material="opacity=0.7" geometry="width: 2.7; height: 1.4"></a-video>
+                
+                <a-video class="adelante" spot="linkto:#point4;spotgroup:group-point4" position="0.40 1.3 -7" rotation="-70 -2 90" src="#adelante" material="opacity: 0.7" geometry="width:2.5; height: 1"></a-video>
+
+                <a-video src="#video" id="open" position="5 -13 -9" rotation="-40 -40 0.000" material="opacity:0.7" geometry="width: 4; height: 4"></a-video>
+
+                <a-video src="#video" id="open" position="8 -0.7 11.4" rotation="20 -120 0.000" material="opacity:0.7" geometry="width: 2.8; height: 2.8"></a-video>
+            </a-entity>
+            
+            <a-entity id="group-point3"  scale="0 0 0">
+                <a-image class="adelante" spot="linkto:#point5;spotgroup:group-point5" position="-13.7 -6 1" rotation="-90 100 115" src="#adelante" material="opacity=0.8" geometry="width: 4; height: 3.5"></a-image>
+
+                <a-image class="atras" spot="linkto:#point1;spotgroup:group-point1" position="12.13 -3 0.5" rotation="80 70 68" src="#atras" material="opacity=0.8" geometry="width: 3; height: 2.3"></a-image>
+
+                <a-video src="#video" id="open" position="2 3 -10" rotation="30 -10 0.000" material="opacity:0.7" geometry="width: 2.5; height: 2.5"></a-video>
+                
+            </a-entity>
+
+            <a-entity id="group-point4" scale="0 0 0">
+                <a-image class="atras" spot="linkto:#point2;spotgroup:group-point2" position="-4 0 -5" rotation="-40 40 90" src="#atras" material="opacity=0.8" geometry="width:1; height: 1.2"></a-image>
+                <a-image class="adelante" spot="linkto:#point6;spotgroup:group-point6" position="4 1 4" rotation="70 30 75" src="#adelante" material="opacity=0.8" geometry="width:1.8; height:0.8"></a-image>
+
+                <a-video src="#video" id="open" position="13 -3 1.5" rotation="20 -100 0.000" material="opacity:0.7" geometry="width: 2.8; height: 3.2"></a-video>
+
+                <a-video src="#video" id="open" position="-2 0 10" rotation="30 -10 0.000" material="opacity:0.7" geometry="width: 1.8; height: 1.8"></a-video>>
+
+                <a-video src="#video" id="open" position="-5 -15 0" rotation="40 -100 0.000" material="opacity:0.7" geometry="width: 6; height: 6"></a-video>
+
+                <a-video src="#video" id="open" position="5 0 -16" rotation="10 -40 0.000" material="opacity:0.7" geometry="width: 3.2; height: 3.2"></a-video>
+            </a-entity>
+
+            <a-entity id="group-point5" scale="0 0 0">
+                <a-image class="adelante" spot="linkto:#point3;spotgroup:group-point3" position="-19.1 -6 -16" rotation="-75 80 70" src="#adelante" material="opacity=0.8" geometry="width:6.7; height:5.5"></a-image>
+            </a-entity>
+
+            <a-entity id="group-point6" scale="0 0 0">
+                <a-image class="atras" spot="linkto:#point4;spotgroup:group-point4" position="-12 0 9.8" rotation="-40 90 90" src="#atras" material="opacity=0.8" geometry="width:2; height: 2"></a-image>
+                <a-image class="adelante" spot="linkto:#point8;spotgroup:group-point8" position="9.8 0 1.5" rotation="60 50 75" src="#adelante" material="opacity=0.8" geometry="width:1.9; height:1.7"></a-image>
+
+                <a-video src="#video" id="open" position="0 -7 -13" rotation="10 10 0.000" material="opacity:0.7" geometry="width: 3.2; height: 3.2"></a-video>
+            </a-entity>
+
+            <a-entity id="group-point7" scale="0 0 0">
+                <a-image class="adelante" spot="linkto:#point8;spotgroup:group-point8" position="-14 -0.5 6" rotation="20 80 120" src="#adelante" material="opacity=0.8" geometry="width:2.5; height:2.5"></a-image>
+            </a-entity>
+
+            <a-entity id="group-point8" scale="0 0 0">
+                <a-image class="atras" spot="linkto:#point6;spotgroup:group-point6" position="0 1 20" rotation="10 20 180" src="#atras" material="opacity=0.8" geometry="width:5; height: 4"></a-image>
+                <a-image class="adelante" spot="linkto:#point7;spotgroup:group-point7" position="15 -1 -2" rotation="30 50 75" src="#atras" material="opacity=0.8" geometry="width:3; height: 2.5"></a-image>
+
+                <a-video src="#video" id="open" position="-3 -2.5 -6" rotation="-45 20 0.000" material="opacity:0.7" geometry="width: 2; height: 2"></a-video>
+            </a-entity>
+            
+        </a-entity>
+
+
+        <a-entity id="cam" camera position="0 1.6 0" look-controls>
+            <a-entity 
+                cursor="fuse: true; fuseTimeout:2000"
+                geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.02"
+                position="0 0 -1.8"
+                material="shader:flat;color:#ff0000;">
+            </a-entity>
+
+            <a-entity 
+            cursor="rayOrigin: mouse"
+            raycaster="objects: .interactivo"
+            geometry="primitive:ring; radiusInner:0.01; radiusOuter:0.02"
+            position="0 0 -1.8"
+            material="shader:flat; color:#ff0000;">
+        </a-entity>
+
+        <a-image 
+            class="close interactivo" 
+            src="resources/casita.png" 
+            position="0.75 0.30 -1.5" 
+            width="0.18" 
+            height="0.18"
+            event-set__click="_event: click; color: #00FF00">
+        </a-image>
+        <a-image 
+            class="menu interactivo" 
+            id="menu" 
+            src="resources/menu.png" 
+            position="-0.80 0.30 -1.5" 
+            width="0.20" 
+            height="0.20"
+            event-set__click="_event: click; color: #FF0000">
+            
+        </a-image>
+
+        <a-entity id="opciones" visible="false">
+            <a-entity id="spotMenu" spot="linkto:#point1;spotgroup:group-point1" position="-2 1.1 -1.5" menu-toggle>
+                <a-plane class="interactivo" color="#ffffff" opacity="0.8" width="0.8" height="0.15"></a-plane>
+                <a-text value="Escenario 1" color="black" align="center" width="2"></a-text>
+            </a-entity>
+            <a-entity spot="linkto:#point2;spotgroup:group-point2" position="-2 0.95 -1.5" menu-toggle>
+                <a-plane class="interactivo" color="#ffffff" class="interactivo" opacity="0.8" width="0.8" height="0.15" menu-toggle></a-plane>
+                <a-text value="Escenario 2" color="black" align="center" width="2"></a-text>
+            </a-entity>
+            <a-entity spot="linkto:#point3;spotgroup:#group-point3" position="-2 0.80 -1.5" menu-toggle>
+                <a-plane class="interactivo" color="#ffffff" opacity="0.8" width="0.8" height="0.15"></a-plane>
+                <a-text value="Escenario 3" color="black" align="center" width="2"></a-text>
+            </a-entity>
+            <a-entity spot="linkto:#point4;spotgroup:#group-point4" position="-2 0.65 -1.5" menu-toggle>
+                <a-plane class="interactivo" color="#ffffff" opacity="0.8" width="0.8" height="0.15"></a-plane>
+                <a-text value="Escenario 4" color="black" align="center" width="2"></a-text>
+            </a-entity>
+        </a-entity>
+
+        <a-entity position="-0.40 0.30 -1.5">
+            <a-plane color="#222" opacity="0.6" width="0.4" height="0.12"></a-plane>
+            <a-text id="scene-value" value="Escenario 1" color="white" align="center" width="1.2"></a-text>
+        </a-entity>
+        </a-entity>
+    </a-scene>
+
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras/dist/aframe-extras.min.js"></script>
+
+    <script src="js/hotspot.js"></script>
+</body>
+</html>
