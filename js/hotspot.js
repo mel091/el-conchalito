@@ -49,36 +49,45 @@ function init() {
     });
 }
 AFRAME.registerComponent('visibilidad', {
-    schema: {
-      openImageId: {type: 'string', default: ''},
-      imageId: {type: 'string', default: ''},
-      closeId: {type: 'string', default: ''}
-    },
-    init: function () {
-      const openImage = document.querySelector(`#${this.data.openImageId}`);
-      const hspImage = document.querySelector(`#${this.data.imageId}`);
-      const closeButton = document.querySelector(`#${this.data.closeId}`);
-  
-      if (openImage && hspImage && closeButton) {
-        console.log('Elementos encontrados:', {openImage, hspImage, closeButton});
-  
-        openImage.addEventListener('mouseenter', () => {
-          console.log('mouseenter en openImage');
-          openImage.setAttribute('visible', 'false');
-          hspImage.setAttribute('visible', 'true');
+  schema: {
+    openImageId: {type: 'string', default: ''},
+    imageId: {type: 'string', default: ''},
+    closeId: {type: 'string', default: ''}
+  },
+  init: function () {
+    const openImage = document.querySelector(`#${this.data.openImageId}`);
+    const hspImage = document.querySelector(`#${this.data.imageId}`);
+    const closeButton = document.querySelector(`#${this.data.closeId}`);
+
+    if (openImage && hspImage && closeButton) {
+      console.log('Elementos encontrados:', {openImage, hspImage, closeButton});
+
+      openImage.addEventListener('mouseenter', () => {
+        console.log('mouseenter en openImage');
+        openImage.setAttribute('visible', 'false');
+        console.log('openImage visibility after:', openImage.getAttribute('visible'));
+        hspImage.setAttribute('visible', 'true');
+        console.log('hspImage visibility after:', hspImage.getAttribute('visible'));
+      
+        console.log('hspImage attributes:', {
+          visible: hspImage.getAttribute('visible'),
+          position: hspImage.getAttribute('position'),
+          rotation: hspImage.getAttribute('rotation'),
+          material: hspImage.getAttribute('material')
         });
-  
-        closeButton.addEventListener('mouseenter', () => {
-          console.log('mouseenter en closeButton');
-          openImage.setAttribute('visible', 'true');
-          hspImage.setAttribute('visible', 'false');
-        });
-      } else {
-        console.error('Uno o más elementos no se encontraron:', {openImage, hspImage, closeButton});
-      }
+      });
+      closeButton.addEventListener('mouseenter', () => {
+        console.log('mouseenter en closeButton');
+        openImage.setAttribute('visible', 'true');
+        console.log('openImage visibility:', openImage.getAttribute('visible'));
+        hspImage.setAttribute('visible', 'false');
+        console.log('hspImage visibility:', hspImage.getAttribute('visible'));
+      });
+    } else {
+      console.error('Uno o más elementos no se encontraron:', {openImage, hspImage, closeButton});
     }
-  });
-  
+  }
+});
   
     function autoPlayVideos(videoIds) {
     videoIds.forEach(id => {
