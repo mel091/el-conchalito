@@ -21,8 +21,8 @@ function init() {
             const sky = document.querySelector('#sky');
             sky.setAttribute('src', data.linkto);
 
-                
             cambiarTexto(data.linkto.replace('#', ''));
+
                 /*sky.setAttribute('animation__fadeout', {
                     property: 'material.opacity',
                     to: 0,
@@ -168,6 +168,13 @@ AFRAME.registerComponent('visibilidad', {
 
     const texto = document.querySelector('#scene-value');
     texto.setAttribute('value', scenes[sceneId]);
+
+    const audioControl = document.querySelector('#audio-control');
+    if(sceneId === 'point4'){
+      audioControl.components.sound.playSound();
+    } else{
+      audioControl.components.sound.stopSound();
+    }
 
 }
 window.addEventListener('load', function() {
