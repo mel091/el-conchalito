@@ -153,6 +153,56 @@ AFRAME.registerComponent('visibilidad', {
           this.updateSlide();
         }
       });*/
+
+      AFRAME.registerComponent('carousel', {
+        schema: {
+            imageIds: { type: 'array', default: [] } 
+        },
+    
+        init: function () {
+            
+          this.slides = this.data.imageIds.map(id => ({ image: `#${id}` }));
+    
+            if (this.slides.length === 0) {
+                console.warn('Error no hay ids');
+                return;
+            }
+    
+            this.currentIndex = 0;
+            this.updateSlide();
+    
+            
+            const nextButton = this.el.querySelector('.carousel-next');
+            const prevButton = this.el.querySelector('.carousel-prev');
+    
+            
+            nextButton.addEventListener('mouseenter', () => this.nextSlide());
+            prevButton.addEventListener('mouseenter', () => this.prevSlide());
+        },
+    
+        updateSlide: function () {
+            if (this.slides.length === 0) return;
+    
+            
+            const currentSlide = this.slides[this.currentIndex];
+            const imageEl = this.el.querySelector('#carousel-image');
+            imageEl.setAttribute('src', currentSlide.image);
+        },
+    
+        nextSlide: function () {
+            if (this.slides.length === 0) return;
+    
+            this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+            this.updateSlide();
+        },
+    
+        prevSlide: function () {
+            if (this.slides.length === 0) return;
+    
+            this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+            this.updateSlide();
+        }
+    });
     
     function cambiarTexto(sceneId){
     const scenes = {
